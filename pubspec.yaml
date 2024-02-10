@@ -66,15 +66,22 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/sunny.json
+    - assets/images/dayRain.json
+    - assets/images/daySnow.json
+    - assets/images/mist.json
     - assets/images/moon.json
     - assets/images/moonCloudy.json
+    - assets/images/nightRain.json
+    - assets/images/nightSnow.json
     - assets/images/partlyCloudy.json
-    - assets/images/rainyDay.json
+    - assets/images/rain.json
     - assets/images/snow.json
-    - assets/images/storm.json
+    - assets/images/sunny.json
     - assets/images/thunder.json
+    - assets/images/thunderDayRain.json
+    - assets/images/thunderRain.json
     - assets/images/windy.json
+    - assets/images/cloudy.json
     - assets/images/dark.png
     - assets/images/light.png
     - .env

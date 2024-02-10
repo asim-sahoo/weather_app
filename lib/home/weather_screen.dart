@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:weatherapp/api/weather_api.dart';
+import 'package:weatherapp/home/weather_util.dart';
 import 'package:weatherapp/models/weather_model.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
@@ -55,23 +56,12 @@ class _WeatherScreenState extends State<WeatherScreen> {
   String currentTime = '';
   // Function to update lottieAsset based on weather condition
   void _updateLottieAsset() {
-    if (_weather != null &&
-        _weather!.mainCondition.toLowerCase().contains('rain')) {
-      setState(() {
-        _lottieAsset = 'assets/images/rainyDay.json';
-      });
-    } else if (_weather != null &&
-        _weather!.mainCondition.toLowerCase().contains('clouds')) {
-      setState(() {
-        _lottieAsset = 'assets/images/partlyCloudy.json';
-      });
-    } else {
-      setState(() {
-        _lottieAsset =
-            _isDayTime ? 'assets/images/sunny.json' : 'assets/images/moon.json';
-      });
-    }
+  if (_weather != null) {
+    setState(() {
+      _lottieAsset = WeatherImageUtil.getLottieAsset(_weather!.mainCondition, _isDayTime, _weather?.windSpeed??0.0);
+    });
   }
+}
 
   _fetchWeather(String cityName) async {
     try {
